@@ -3,10 +3,7 @@
 import {
   Sprite,
   Trigger,
-  Watcher,
-  Costume,
-  Color,
-  Sound
+  Costume
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
 export default class Bullet extends Sprite {
@@ -14,13 +11,16 @@ export default class Bullet extends Sprite {
     super(...args);
 
     this.costumes = [
-      new Costume("costume1", "./Bullet/costumes/costume1.svg", { x: 0, y: 0 })
+      new Costume("bullet", "./Bullet/costumes/bullet.svg", { x: 0, y: 0 })
     ];
 
     this.triggers = [
-      new Trigger(Trigger.GREEN_FLAG, this.whenGreenFlagClicked)
+      new Trigger(Trigger.GREEN_FLAG, this.whenGreenFlagClicked),
+      new Trigger(Trigger.CLONE_START, this.cloneStart)
     ];
   }
 
-  *whenGreenFlagClicked() {}
+  *whenGreenFlagClicked() {
+    this.visible = false;
+  }
 }
