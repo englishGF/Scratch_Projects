@@ -24,5 +24,24 @@ export default class Sprite1 extends Sprite {
     ];
   }
 
-  *whenGreenFlagClicked() {}
+  *whenGreenFlagClicked() {
+    document.body.style.background = "black";
+    this.size = 50;
+    this.goto(0, 0);
+    while (true) {
+      if (this.keyPressed("w") || this.keyPressed("up arrow")) {
+        this.y += 10;
+      }
+      if (this.keyPressed("s") || this.keyPressed("down arrow")) {
+        this.y += -10;
+      }
+      if (this.keyPressed("d") || this.keyPressed("right arrow")) {
+        this.x += 10;
+      }
+      if (this.keyPressed("a") || this.keyPressed("left arrow")) {
+        this.x += -10;
+      }
+      yield;
+    }
+  }
 }
