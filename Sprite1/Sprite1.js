@@ -26,7 +26,7 @@ export default class Sprite1 extends Sprite {
 
   *whenGreenFlagClicked() {
     document.body.style.background = "black";
-    this.size = 50;
+    this.size = 20;
     this.goto(0, 0);
     while (true) {
       if (this.keyPressed("w") || this.keyPressed("up arrow")) {
